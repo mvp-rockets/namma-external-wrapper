@@ -48,12 +48,10 @@ module.exports = class ExternalWrapper {
         return axios;
     }
 
-
     perform(config) {
         return new Promise(async (resolve) => {
             try {
                 const client = this.getClient();
-                console.log("skkkskdkk")
                 const data = await makeCall(client, config, this.retryOptions);
                 resolve(Result.Ok(data));
             }

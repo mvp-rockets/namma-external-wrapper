@@ -21,6 +21,27 @@ app.get("/", async (req, res) => {
         })(resultFromWrapper)
 });
 
+app.get("/with-rate-limit", async (req, res) => {
+    const externalWrapper = new ExternalWrapper(
+        { retries: 2, minTimeout: 5000 },
+        {
+            maxRequests: 1,
+            perMilliseconds: 10000,
+            maxRPS: 1
+        }
+    );
+    const resultFromWrapper = await externalWrapper.perform({
+        url: "http://localhost:3000/test"
+    });
+    whenResult(
+        (result) => {
+            res.send(result);
+        },
+        (ex) => {
+            res.send(ex)
+        })(resultFromWrapper)
+});
+
 app.post("/", async (req, res) => {
     const { name } = req.body;
     const externalWrapper = new ExternalWrapper({ retries: 2, minTimeout: 5000 });
