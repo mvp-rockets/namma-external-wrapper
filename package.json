@@ -17,6 +17,16 @@
     "url": "https://github.com/mvp-rockets/namma-external-wrapper/issues"
   },
   "homepage": "https://github.com/mvp-rockets/namma-external-wrapper#readme",
+  "keywords": [
+    "ramda",
+    "@mvp-rockets/namma-lib",
+    "mvp",
+    "napses",
+    "axios",
+    "axios-rate-limit",
+    "async-retry",
+    "folktale"
+  ],
   "dependencies": {
     "@mvp-rockets/namma-lib": "^1.1.9",
     "async-retry": "^1.3.3",
