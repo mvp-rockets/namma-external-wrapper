@@ -1,7 +1,7 @@
 {
   "name": "@mvp-rockets/namma-external-wrapper",
   "version": "1.0.0",
-  "description": "A javascript to make call to exteranl application",
+  "description": "A javascript-based wrapper for making API calls with the ability to add retries and ratelimits.",
   "main": "external-wrapper.js",
   "scripts": {
     "start": "nodemon index.js",
