@@ -70,11 +70,11 @@ A javascript-based wrapper for making API calls with the ability to add retries 
 
 2. ExternalWrapper take two object when you are initializing object. new ExternalWrapper(retryObject,rateLimitObject)
    1. retryObject details : https://www.npmjs.com/package/async-retry
-      retries: The maximum amount of times to retry the operation. Default is 5.
-      factor: The exponential factor to use. Default is 2.
-      minTimeout: The number of milliseconds before starting the first retry. Default is 1000.
-      maxTimeout: The maximum number of milliseconds between two retries. Default is Infinity.
+      1. retries: The maximum amount of times to retry the operation. Default is 5.
+      2. factor: The exponential factor to use. Default is 2.
+      3. minTimeout: The number of milliseconds before starting the first retry. Default is 1000.
+      4. maxTimeout: The maximum number of milliseconds between two retries. Default is Infinity.
    2. rateLimitObject details: https://www.npmjs.com/package/axios-rate-limit
-      maxRequests: The no of request : example 2
-      perMilliseconds: no of request perMilliseconds example 1
-      maxRPS: maxRPS is a shorthand for perMilliseconds: 1000, and it takes precedence.if specified both with maxRequests and perMilliseconds
+      1. maxRequests: The no of request : example 2
+      2. perMilliseconds: no of request perMilliseconds example 1
+      3. maxRPS: maxRPS is a shorthand for perMilliseconds: 1000, and it takes precedence.if specified both with maxRequests and perMilliseconds
