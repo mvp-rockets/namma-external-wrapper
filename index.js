@@ -64,6 +64,16 @@ app.post('/', async (req, res) => {
 	)(resultFromWrapper);
 });
 
+app.get('/raw', async (req, res) => {
+	try {
+		const externalWrapper = new ExternalWrapper({ retries: 2, minTimeout: 5000 });
+		const resultFromWrapper = await externalWrapper.perform({ url: 'http://localhost:3000/test' }, true);
+		res.send(resultFromWrapper);
+	} catch (error) {
+		res.send(error);
+	}
+});
+
 // PORT
 const PORT = 3001;
 app.listen(PORT, () => {
