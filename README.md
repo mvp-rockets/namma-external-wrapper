@@ -63,6 +63,25 @@ A javascript-based wrapper for making API calls with the ability to add retries 
 	});
 
 ```
+```
+// Get raw response from the API call.
+
+// Pass the second arg as true to the perform method to get actual response from the API call. 
+// This response won't be of the type folktale Result.
+// This is an optional arg and is false by default.
+
+app.get('/raw', async (req, res) => {
+	try {
+		const externalWrapper = new ExternalWrapper({ retries: 2, minTimeout: 5000 });
+		const resultFromWrapper = await externalWrapper.perform({ url: 'http://localhost:3000/test' }, true);
+		res.send(resultFromWrapper);
+	} catch (error) {
+		res.send(error);
+	}
+});
+
+
+```
 
 ### 4. Imp Notes
 

@@ -45,14 +45,16 @@ module.exports = class ExternalWrapper {
 		return axios;
 	}
 
-	perform(config) {
+	perform(config, raw = false) {
 		// eslint-disable-next-line no-async-promise-executor
-		return new Promise(async (resolve) => {
+		return new Promise(async (resolve, reject) => {
 			try {
 				const client = this.getClient();
 				const data = await makeCall(client, config, this.retryOptions);
+				if (raw) resolve(data);
 				resolve(Result.Ok(data));
 			} catch (ex) {
+				if (raw) reject(ex);
 				resolve(Result.Error(ex));
 			}
 		});
